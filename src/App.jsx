@@ -12,7 +12,10 @@ let course = {
   hours: 1500
 }
 
-
+const userData = {
+  name: 'Sara',
+  title: 'Formadora'
+}
 
 function FirstComponent(){
   return <div>
@@ -23,7 +26,10 @@ function FirstComponent(){
 }
 
 function Card(){
-  
+    return <div className='card'>
+    <p><b>Nome:</b>{userData.name}</p>
+    <p><b>Profissão:</b>{userData.title}</p>
+  </div>
 }
 
 function MainGoal(){
@@ -38,6 +44,7 @@ function App() {
     <>
     <FirstComponent/>
     <MainGoal/>
+    <Card/>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />

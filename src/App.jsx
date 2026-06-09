@@ -1,50 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
+import "./App.css";
+import Feriado from "./components/Feriado";
 
-let subject = 'Python';
-subject='Java';
+let subject = "Python";
+subject = "Java";
 
 let course = {
-  name:'Tecnico de Programação',
-  hours: 1500
-}
+  name: "Tecnico de Programação",
+  hours: 1500,
+};
 
 const userData = {
-  name: 'Sara',
-  title: 'Formadora'
+  firstName: "Sara",
+  lastName: "Monteiro",
+  title: "Formadora",
+};
+
+const holidayInfo = {
+  day: "todos os dias",
+  type: "descanso",
+};
+
+const arrObjectives = [
+  "Aprender React e construir aplicações incriveis",
+  "Fazer interfaces user friendly",
+  "ter o meu código optimizado",
+];
+
+function FirstComponent() {
+  return (
+    <div>
+      <h5>Aprendendo React!</h5>
+      <p>Para melhorar as minhas competências de Programação Web 🌐</p>
+      <p>
+        O curso é {course.name} e tem {course.hours}h
+      </p>
+    </div>
+  );
 }
 
-function FirstComponent(){
-  return <div>
-    <h5>Aprendendo React!</h5>
-    <p>Para melhorar as minhas competências de Programação Web 🌐</p>
-    <p>O curso é {course.name} e tem {course.hours}h</p>
-  </div>
+function Card() {
+  return (
+    <div className="card">
+      <p>
+        <b>Nome:</b>
+        {userData.lastName}
+      </p>
+      <p>
+        <b>Apelido:</b>
+        {userData.firstName}
+      </p>
+      <p>
+        <b>Profissão:</b>
+        {userData.title}
+      </p>
+    </div>
+  );
 }
 
-function Card(){
-    return <div className='card'>
-    <p><b>Nome:</b>{userData.name}</p>
-    <p><b>Profissão:</b>{userData.title}</p>
-  </div>
+function MainGoal({ objective }) {
+  return <p className="pBack">{objective}</p>;
 }
 
-function MainGoal(){
-  return <p className='pBack'>O meu objectivo é aprender {subject} e construir aplicações incríveis!</p>
-}
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-    <FirstComponent/>
-    <MainGoal/>
-    <Card/>
+      <FirstComponent />
+
+      {/* componente main goal que vai buscar o objectivo ao array e o coloca na propriedade do componente MainGoal */}
+      <MainGoal objective={arrObjectives[0]} />
+      <MainGoal objective={arrObjectives[1]} />
+      <MainGoal objective={arrObjectives[2]} />
+
+      <Card />
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -64,6 +99,9 @@ function App() {
           Count is {count}
         </button>
       </section>
+
+      <Feriado day="amanhã" type="feriado" />
+      <Feriado day={holidayInfo.day} type={holidayInfo.type} />
 
       <div className="ticks"></div>
 
@@ -150,9 +188,9 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
-        <FirstComponent/>
+      <FirstComponent />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -4,20 +4,10 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
 import Feriado from "./components/Feriado";
+import MainGoal from "./components/MainGoal";
+import Card from "./components/Card";
+import FirstComponent from "./components/FirstComponent";
 
-let subject = "Python";
-subject = "Java";
-
-let course = {
-  name: "Tecnico de Programação",
-  hours: 1500,
-};
-
-const userData = {
-  firstName: "Sara",
-  lastName: "Monteiro",
-  title: "Formadora",
-};
 
 const holidayInfo = {
   day: "todos os dias",
@@ -29,43 +19,6 @@ const arrObjectives = [
   "Fazer interfaces user friendly",
   "ter o meu código optimizado",
 ];
-
-function FirstComponent() {
-  return (
-    <div>
-      <h5>Aprendendo React!</h5>
-      <p>Para melhorar as minhas competências de Programação Web 🌐</p>
-      <p>
-        O curso é {course.name} e tem {course.hours}h
-      </p>
-    </div>
-  );
-}
-
-function Card() {
-  return (
-    <div className="card">
-      <p>
-        <b>Nome:</b>
-        {userData.lastName}
-      </p>
-      <p>
-        <b>Apelido:</b>
-        {userData.firstName}
-      </p>
-      <p>
-        <b>Profissão:</b>
-        {userData.title}
-      </p>
-    </div>
-  );
-}
-
-function MainGoal({ objective }) {
-  return <p className="pBack">{objective}</p>;
-}
-
-
 
 function App() {
   const [count, setCount] = useState(0);

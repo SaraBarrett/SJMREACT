@@ -1,9 +1,6 @@
+import userData from "../data/userData";
+
 function Card() {
-  const userData = {
-    firstName: "Sara",
-    lastName: "Monteiro",
-    title: "Formadora",
-  };
 
   return (
     <div className="card">

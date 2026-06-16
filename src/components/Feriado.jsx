@@ -1,3 +1,5 @@
+import './Feriado.css';
+
 function Feriado({ day, type }) {
   return (
     <div class="feriado-box">

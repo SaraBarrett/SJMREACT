@@ -7,7 +7,9 @@ import Feriado from "./components/Feriado";
 import MainGoal from "./components/MainGoal";
 import Card from "./components/Card";
 import FirstComponent from "./components/FirstComponent";
-
+import TabButton from "./components/TabButton";
+import Events from './components/Events';
+import Login from "./components/auth/Login";
 
 const holidayInfo = {
   day: "todos os dias",
@@ -23,8 +25,18 @@ const arrObjectives = [
 function App() {
   const [count, setCount] = useState(0);
 
+  function printAuth(){
+    alert('autenticação!')
+  }
+
   return (
     <>
+    <Login/>
+    <Events/>
+    <TabButton clickFunction={printAuth}>Login</TabButton>
+      <TabButton clickFunction={printAuth}>Registo</TabButton>
+      <TabButton>Clica aqui</TabButton>
+
       <FirstComponent />
 
       {/* componente main goal que vai buscar o objectivo ao array e o coloca na propriedade do componente MainGoal */}

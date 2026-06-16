@@ -1,4 +1,6 @@
 function FirstComponent() {
+
+  
   let course = {
     name: "Tecnico de Programação",
     hours: 1500,

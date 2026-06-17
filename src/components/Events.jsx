@@ -12,9 +12,9 @@ function Events() {
     <div>
       <h3>Eventos Dinâmicos</h3>
       <menu>
-        <TabButton clickFunction={() => printMateria("jsx")}>JSX</TabButton>
-        <TabButton clickFunction={() => printMateria("props")}>Props</TabButton>
-        <TabButton clickFunction={() => printMateria("state")}>
+        <TabButton isActive={subjectIn == 'jsx'} clickFunction={() => printMateria("jsx")}>JSX</TabButton>
+        <TabButton isActive={subjectIn == 'props'} clickFunction={() => printMateria("props")}>Props</TabButton>
+        <TabButton isActive={subjectIn == 'state'} clickFunction={() => printMateria("state")}>
           States
         </TabButton>
       </menu>

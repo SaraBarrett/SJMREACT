@@ -1,9 +1,9 @@
 import './TabButton.css'
 
 
-function TabButton({children, clickFunction}){
+function TabButton({children, clickFunction, isActive}){
     
-    return <button onClick={clickFunction} className="tab-button">{children}</button>;
+    return <button onClick={clickFunction} className={isActive?'tab-button-active':'tab-button'}>{children}</button>;
 }
 
 export default TabButton;

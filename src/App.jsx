@@ -8,10 +8,16 @@ import MainGoal from "./components/MainGoal";
 import Card from "./components/Card";
 import FirstComponent from "./components/FirstComponent";
 import TabButton from "./components/TabButton";
-import Events from './components/Events';
+import Events from "./components/Events";
 import Login from "./components/auth/Login";
 import Discount from "./components/Discount";
 import Delete from "./components/Delete";
+import { ComponentsCard } from "./components/ComponentsCard";
+import { CORE_CONCEPTS } from "./data/content";
+import ShoppingItem from "./components/shoppingItem";
+import {shoppingList} from './data/shoppingList'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Homepage from './pages/Homepage'
 
 const holidayInfo = {
   day: "todos os dias",
@@ -24,20 +30,38 @@ const arrObjectives = [
   "ter o meu código optimizado",
 ];
 
+ const router = createBrowserRouter([
+    {path:'/', element:<Homepage/>}
+  ]);
+
 function App() {
   const [count, setCount] = useState(0);
 
-  function printAuth(){
-    alert('autenticação!')
+  function printAuth() {
+    alert("autenticação!");
   }
 
-  return (
+  return <RouterProvider router= {router} />;
+
+  
+  return(
     <>
-    <Delete/>
-    <Discount/>
-    <Login/>
-    <Events/>
-    <TabButton clickFunction={printAuth}>Login</TabButton>
+
+    <h5>Lista de Compras</h5>
+    {shoppingList.map((item, index) => (
+      <ShoppingItem item={item.item} qt={item.qt} key={index} />
+  ))}
+
+
+      {CORE_CONCEPTS.map((item, index) =>(
+        <ComponentsCard {...item} key={index} />
+        ))}
+
+      <Delete />
+      <Discount />
+      <Login />
+      <Events />
+      <TabButton clickFunction={printAuth}>Login</TabButton>
       <TabButton clickFunction={printAuth}>Registo</TabButton>
       <TabButton>Clica aqui</TabButton>
 

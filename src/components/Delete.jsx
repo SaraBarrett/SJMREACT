@@ -10,7 +10,7 @@ export default function Delete() {
         <div data-testid="alert" id="alert">
           <h2>Are you sure?</h2>
           <p>These changes can't be reverted!</p>
-          <button>Proceed</button>
+          <button onClick={()=>setIsDelete(false)}>Proceed</button>
         </div>
       )}
 

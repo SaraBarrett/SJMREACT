@@ -10,6 +10,8 @@ import FirstComponent from "./components/FirstComponent";
 import TabButton from "./components/TabButton";
 import Events from './components/Events';
 import Login from "./components/auth/Login";
+import Discount from "./components/Discount";
+import Delete from "./components/Delete";
 
 const holidayInfo = {
   day: "todos os dias",
@@ -31,6 +33,8 @@ function App() {
 
   return (
     <>
+    <Delete/>
+    <Discount/>
     <Login/>
     <Events/>
     <TabButton clickFunction={printAuth}>Login</TabButton>

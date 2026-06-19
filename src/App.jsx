@@ -15,10 +15,12 @@ import Delete from "./components/Delete";
 import { ComponentsCard } from "./components/ComponentsCard";
 import { CORE_CONCEPTS } from "./data/content";
 import ShoppingItem from "./components/shoppingItem";
-import { shoppingList } from "./data/shoppingList";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import EventsPage from "./pages/EventsPage";
+import ShoppingPage from "./pages/ShoppingPage";
+import RootLayout from "./components/RootLayout";
 
 const holidayInfo = {
   day: "todos os dias",
@@ -32,8 +34,15 @@ const arrObjectives = [
 ];
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
-  { path: "/events", element: <EventsPage /> },
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <Homepage /> },
+      { path: "/events", element: <EventsPage /> },
+      { path: "/shopping", element: <ShoppingPage /> },
+    ],
+  },
 ]);
 
 function App() {
@@ -47,11 +56,6 @@ function App() {
 
   return (
     <>
-      <h5>Lista de Compras</h5>
-      {shoppingList.map((item, index) => (
-        <ShoppingItem item={item.item} qt={item.qt} key={index} />
-      ))}
-
       {CORE_CONCEPTS.map((item, index) => (
         <ComponentsCard {...item} key={index} />
       ))}
@@ -59,7 +63,7 @@ function App() {
       <Delete />
       <Discount />
       <Login />
-     
+
       <TabButton clickFunction={printAuth}>Login</TabButton>
       <TabButton clickFunction={printAuth}>Registo</TabButton>
       <TabButton>Clica aqui</TabButton>

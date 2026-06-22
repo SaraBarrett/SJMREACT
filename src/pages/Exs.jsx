@@ -1,0 +1,171 @@
+import { useState } from "react";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../assets/vite.svg";
+import heroImg from "../assets/hero.png";
+import Feriado from "../components/Feriado";
+import MainGoal from "../components/MainGoal";
+import Card from "../components/Card";
+import FirstComponent from "../components/FirstComponent";
+import TabButton from "../components/TabButton";
+import Events from "../components/Events";
+import Login from "../components/auth/Login";
+import Discount from "../components/Discount";
+import Delete from "../components/Delete";
+import { ComponentsCard } from "../components/ComponentsCard";
+
+
+export default function ExsPage() {
+  const holidayInfo = {
+    day: "todos os dias",
+    type: "descanso",
+  };
+
+  const arrObjectives = [
+    "Aprender React e construir aplicações incriveis",
+    "Fazer interfaces user friendly",
+    "ter o meu código optimizado",
+  ];
+  const [count, setCount] = useState(0);
+
+  function printAuth() {
+    alert("autenticação!");
+  }
+  return (
+    <div>
+      <h5>Exercícios</h5>
+      <>
+        <Delete />
+        <Discount />
+        <Login />
+
+        <TabButton clickFunction={printAuth}>Login</TabButton>
+        <TabButton clickFunction={printAuth}>Registo</TabButton>
+        <TabButton>Clica aqui</TabButton>
+
+        <FirstComponent />
+
+        {/* componente main goal que vai buscar o objectivo ao array e o coloca na propriedade do componente MainGoal */}
+        <MainGoal objective={arrObjectives[0]} />
+        <MainGoal objective={arrObjectives[1]} />
+        <MainGoal objective={arrObjectives[2]} />
+
+        <Card />
+        <section id="center">
+          <div className="hero">
+            <img
+              src={heroImg}
+              className="base"
+              width="170"
+              height="179"
+              alt=""
+            />
+            <img src={reactLogo} className="framework" alt="React logo" />
+            <img src={viteLogo} className="vite" alt="Vite logo" />
+          </div>
+          <div>
+            <h1>Get started na Turma de SJM</h1>
+            <p>
+              Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            </p>
+          </div>
+          <button
+            className="counter"
+            onClick={() => setCount((count) => count + 1)}
+          >
+            Count is {count}
+          </button>
+        </section>
+
+        <Feriado day="amanhã" type="feriado" />
+        <Feriado day={holidayInfo.day} type={holidayInfo.type} />
+
+        <div className="ticks"></div>
+
+        <section id="next-steps">
+          <div id="docs">
+            <svg className="icon" role="presentation" aria-hidden="true">
+              <use href="/icons.svg#documentation-icon"></use>
+            </svg>
+            <h2>Documentation</h2>
+            <p>Your questions, answered</p>
+            <ul>
+              <li>
+                <a href="https://vite.dev/" target="_blank">
+                  <img className="logo" src={viteLogo} alt="" />
+                  Explore Vite
+                </a>
+              </li>
+              <li>
+                <a href="https://react.dev/" target="_blank">
+                  <img className="button-icon" src={reactLogo} alt="" />
+                  Learn more
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="social">
+            <svg className="icon" role="presentation" aria-hidden="true">
+              <use href="/icons.svg#social-icon"></use>
+            </svg>
+            <h2>Connect with us</h2>
+            <p>Join the Vite community</p>
+            <ul>
+              <li>
+                <a href="https://github.com/vitejs/vite" target="_blank">
+                  <svg
+                    className="button-icon"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <use href="/icons.svg#github-icon"></use>
+                  </svg>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://chat.vite.dev/" target="_blank">
+                  <svg
+                    className="button-icon"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <use href="/icons.svg#discord-icon"></use>
+                  </svg>
+                  Discord
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/vite_js" target="_blank">
+                  <svg
+                    className="button-icon"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <use href="/icons.svg#x-icon"></use>
+                  </svg>
+                  X.com
+                </a>
+              </li>
+              <li>
+                <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                  <svg
+                    className="button-icon"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <use href="/icons.svg#bluesky-icon"></use>
+                  </svg>
+                  Bluesky
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <div className="ticks"></div>
+        <section id="spacer"></section>
+        <FirstComponent />
+      </>
+    </div>
+  );
+}

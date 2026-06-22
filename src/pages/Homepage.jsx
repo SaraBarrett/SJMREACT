@@ -7,6 +7,8 @@ export default function Homepage() {
       <Link to="/events">Events</Link>
       <br />
       <Link to="/shopping">Compras</Link>
+      <br />
+      <Link to="/exs">Exercícios</Link>
     </div>
   );
 }

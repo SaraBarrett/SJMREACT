@@ -6,6 +6,7 @@ import ShoppingPage from "./pages/ShoppingPage";
 import RootLayout from "./components/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import ExsPage from "./pages/Exs";
+import PeoplePage from "./pages/PeoplePage";
 
 
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/events", element: <EventsPage /> },
       { path: "/shopping", element: <ShoppingPage /> },
       { path: "/exs", element: <ExsPage /> },
+      { path: "/people", element: <PeoplePage/> },
     ],
   },
 ]);

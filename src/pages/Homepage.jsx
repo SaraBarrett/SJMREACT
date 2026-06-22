@@ -9,6 +9,8 @@ export default function Homepage() {
       <Link to="/shopping">Compras</Link>
       <br />
       <Link to="/exs">Exercícios</Link>
+      <br />
+       <Link to="/people">Personagens Star Wars</Link>
     </div>
   );
 }
